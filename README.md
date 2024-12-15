@@ -100,12 +100,17 @@ See `src/config.js` for all options.
 You can add options directly in the command or put them in a file to load.
 
 ##### Docker
-You can pass variables using `-e VAR=VAL`, for example `docker run -e EMAIL=foo@bar.baz -e NOTIFY='tgram://bottoken/ChatID' ...` or using `--env-file fgc.env` where `fgc.env` is a file on your host system (see [docs](https://docs.docker.com/engine/reference/commandline/run/#env)). You can also `docker cp` your configuration file to `/fgc/data/config.env` in the `fgc` volume to store it with the rest of the data instead of on the host ([example](https://github.com/moby/moby/issues/25245#issuecomment-365980572)).
+You can pass variables using `-e VAR=VAL`, for example `docker run -e EMAIL=foo@bar.baz -e NOTIFY='tgram://bottoken/ChatID' ...` or using `--env-file fgc.env` where `fgc.env` is a file on your host system (see [docs](https://docs.docker.com/engine/reference/commandline/run/#env)). 
+You can also `docker cp` your configuration file to `/fgc/data/config.env` in the `fgc` volume to store it with the rest of the data instead of on the host ([example](https://github.com/moby/moby/issues/25245#issuecomment-365980572)).
 If you are using [docker compose](https://docs.docker.com/compose/environment-variables/) (or Portainer etc.), you can put options in the `environment:` section.
 
 ##### Without Docker
 On Linux/macOS you can prefix the variables you want to set, for example `EMAIL=foo@bar.baz SHOW=1 node epic-games` will show the browser and skip asking you for your login email. On Windows you have to use `set`, [example](https://github.com/vogler/free-games-claimer/issues/314).
-You can also put options in `data/config.env` which will be loaded by [dotenv](https://github.com/motdotla/dotenv).
+You can also put options in `data/config.env`, and run node w/ the env vars loaded: 
+```
+node --env-file=data/config.env gog.js 
+```
+
 
 ### Notifications
 The scripts will try to send notifications for successfully claimed games and any errors like needing to log in or encountered captchas (should not happen).
