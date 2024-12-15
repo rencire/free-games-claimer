@@ -74,11 +74,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1734244084,
-        "narHash": "sha256-lKLsviU0XSVhooyl8iNVcOqNr2zvNf1bfzNtAXily/Y=",
+        "lastModified": 1734254164,
+        "narHash": "sha256-eu9Nv+tH5xYBFSeSM9aGsOGLzpepIuPUNRN9+VbkXww=",
         "owner": "rencire",
         "repo": "nix-playwright-browsers",
-        "rev": "023b3c3c47ea589734322a8db27a345ec92cb61a",
+        "rev": "5d8021538afdc112aacf8d40b8c481e0d051a660",
         "type": "github"
       },
       "original": {
